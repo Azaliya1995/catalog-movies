@@ -6,6 +6,7 @@
 
 const users = require('../app/controllers/users');
 const articles = require('../app/controllers/articles');
+const movies = require('../app/controllers/movies');
 const comments = require('../app/controllers/comments');
 const tags = require('../app/controllers/tags');
 const auth = require('./middlewares/authorization');
@@ -86,6 +87,7 @@ module.exports = function(app, passport) {
 
   // home route
   app.get('/', articles.index);
+  app.get('/movies', movies.index);
 
   // comment routes
   app.param('commentId', comments.load);

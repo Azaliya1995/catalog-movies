@@ -8,7 +8,8 @@
 {{#if articles.length}}  
     {{#each articles}} 
       <div>
-        {{title}}
+        <a href="/articles/{{_id}}">{{title}}</a>
+        {{user.username}}
       </div>
     {{/each}}  
 
