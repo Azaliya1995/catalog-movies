@@ -1,0 +1,43 @@
+{{#ifCond info '&&' info.length}} 
+  <div class="fade in alert alert-info">  
+    <button class="close" type="button" data-dismiss="alert">×</button> 
+    <ul>  
+      {{ for inf in info }} 
+        <li>{{ inf }}</li>  
+      {{ endfor }}  
+    </ul> 
+  </div>  
+{{/ifCond}} 
+
+{{#ifCond errors '&&' errors.length}}  
+  <div class="fade in alert alert-danger">  
+    <button class="close" type="button" data-dismiss="alert">×</button> 
+    <ul>  
+      {{#each errors }} 
+        <li>{{ this }}</li>  
+      {{/each}}  
+    </ul> 
+  </div>  
+{{/ifCond}}  
+
+{{#ifCond success '&&' success.length}}  
+  <div class="fade in alert alert-success"> 
+    <button class="close" type="button" data-dismiss="alert">×</button> 
+    <ul>  
+      {{#each success }} 
+        <li>{{ this }}</li> 
+      {{/each}}   
+    </ul> 
+  </div>  
+{{/ifCond}}  
+
+{{#ifCond warning '&&' warning.length}}  
+  <div class="fade in alert alert-warning"> 
+    <button class="close" type="button" data-dismiss="alert">×</button> 
+    <ul>  
+      {{#each warning }} 
+        <li>{{ this }}</li> 
+      {{/each}}  
+    </ul> 
+  </div>  
+{{/ifCond}}  

@@ -1,0 +1,30 @@
+{{!-- {{ block main }}   --}}
+  <h1>{{ title }}</h1>  
+{{!-- {{ endblock }}   --}}
+
+{{!-- {{ block content }}  --}}
+
+
+{{#if articles.length}}  
+    {{#each articles}} 
+      <div>
+        {{title}}
+      </div>
+    {{/each}}  
+
+    {{#ifCond pages '>' 1}} 
+      <ul class="pagination"> 
+        pagination
+        {{!-- {{ autoescape false }}  
+          {{ createPagination(pages, page) }} 
+        {{ endautoescape }} --}} 
+      </ul> 
+    {{/ifCond}} 
+{{else}}  
+    <h4 class="muted">  
+      No articles.&nbsp;  
+      <a href="/articles/new">create one</a>  
+    </h4> 
+{{/if}}  
+
+{{!-- {{ endblock }} --}}

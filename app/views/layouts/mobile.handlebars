@@ -1,0 +1,21 @@
+ {% include '../includes/head.html' %}  doctype html
+
+html(lang="en")
+  <body>      include ../includes/head
+    {% include '../includes/header.html' %}   meta(name='viewport', content='width=device-width,initial-scale=1')
+    <div class="container">   link(rel="stylesheet", href="/css/bootstrap-responsive.min.css")
+      {# Customize this layout for mobile device resolutions #}   body
+      <div class="page-header">     include ../includes/header
+        {% block main %}{% endblock %}      .alert
+      </div>          |  You are checking this out from your mobile device!
+      <div class="messages">        .container
+        {% include '../includes/messages.html' %}         .page-header
+      </div>            block main
+      <div class="content">       .messages
+        {% block content %}{% endblock %}           include ../includes/messages
+      </div>          .content
+    </div>          block content
+    {% include '../includes/footer.html' %}     include ../includes/footer
+    {% include '../includes/foot.html' %}       include ../includes/foot
+  </body>   
+</html>
