@@ -1,0 +1,19 @@
+.movies-catalog {
+  .item {
+    img {
+      max-width: 100%;
+      border-radius: 5%;
+      max-height: 375px;
+      margin: 0 auto;
+      display: block;
+    }
+    h3 {
+      margin-top: 5px;
+      margin-bottom: 0;
+    }
+    .dark {
+        color: darken($primary,20%);
+    }
+    padding-bottom: 20px;
+  }
+}

@@ -23,8 +23,10 @@ const helpers = require("view-helpers");
 const ultimatePagination = require("ultimate-pagination");
 const requireHttps = require("./middlewares/require-https");
 const exphbs = require("express-handlebars");
+const sassMiddleware = require("node-sass-middleware");
 const config = require("./");
 const pkg = require("../package.json");
+const path = require("path");
 
 const env = process.env.NODE_ENV || "development";
 
@@ -40,6 +42,17 @@ module.exports = function(app, passport) {
   app.use(
     compression({
       threshold: 512
+    })
+  );
+
+  app.use(
+    sassMiddleware({
+      /* Options */
+      src: path.join(__dirname, "../scss"),
+      dest: path.join(__dirname, "../public/css/"),
+      debug: true,
+      outputStyle: "compressed",
+      prefix: "/css"
     })
   );
 

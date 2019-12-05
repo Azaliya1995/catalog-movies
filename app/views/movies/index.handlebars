@@ -1,3 +1,17 @@
-{{#each movies}}
-{{title}}
-{{/each}}
+<div class="container movies-catalog">
+    <div class="row">
+        {{#each movies}}
+        <div class="col-md-3">
+            <div class="item">
+                {{#if img}}
+                <img src="{{img}}" alt="">
+                {{else }}
+                <img src="https://placekitten.com/300/443" alt="">
+                {{/if}}
+                <h3><a href="/movies/view/{{_id}}">{{title}}</a></h3>
+                <a href="/movies/year/{{year}}" class="dark">{{year}}</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

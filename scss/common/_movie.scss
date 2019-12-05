@@ -1,0 +1,27 @@
+#groups {
+  height: 100vh;
+
+  h1,
+  .cast,
+  .reviews {
+    text-align: center;
+  }
+
+  /*display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 2vw;
+  
+  */
+
+  div {
+    padding: 0.5em;
+    background: $grey;
+
+    img {
+      max-width: 250px;
+    }
+  }
+  /*.year {
+    margin-top: -410px;
+  }*/
+}

@@ -88,6 +88,7 @@ module.exports = function(app, passport) {
   // home route
   app.get('/', articles.index);
   app.get('/movies', movies.index);
+  app.get('/movies/import', movies.import);
 
   // comment routes
   app.param('commentId', comments.load);
