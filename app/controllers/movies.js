@@ -11,6 +11,16 @@ const Movie = mongoose.model('Movie');
 const assign = Object.assign;
 const fs = require("fs");
 
+exports.load = async(function*(req, res, next, id) {
+  try {
+    req.movie = yield Movie.load(id);
+    if (!req.movie) return next(new Error('Movie not found'));
+  } catch (err) {
+    return next(err);
+  }
+  next();
+});
+
 exports.index = async(function*(req, res) {
   const page = (req.query.page > 0 ? req.query.page : 1) - 1;
   const _id = req.query.item;
@@ -33,6 +43,14 @@ exports.index = async(function*(req, res) {
   });
 });
 
+exports.view = async function(req, res) {  //add page for one movie
+  const movie = req.movie;
+  res.render('movies/view', {
+    id: req.params.id,
+    movie: movie
+  });
+};
+ 
 exports.import = async function (req, res) {
   const movies = JSON.parse(
     fs.readFileSync(`${__dirname}/data/movies.json`, "utf-8")

@@ -88,6 +88,9 @@ module.exports = function(app, passport) {
   // home route
   app.get('/', articles.index);
   app.get('/movies', movies.index);
+  app.get('/movies/:id', async function (req, res) {
+    res.send('check');
+  });
   app.get('/movies/import', movies.import);
 
   // comment routes
@@ -130,6 +133,7 @@ module.exports = function(app, passport) {
 
   // assume 404 since no middleware responded
   app.use(function(req, res) {
+    console.log(404);
     const payload = {
       url: req.originalUrl,
       error: 'Not found'

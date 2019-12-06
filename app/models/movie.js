@@ -10,15 +10,15 @@ const Schema = mongoose.Schema;
 
 const MovieSchema = new Schema({
   title: { type: String, default: "", trim: true, maxlength: 400 },
-  year: {type: Number},
-  cast: {type: [{ type: String }]},
-  genres: {type: [{ type: String }]},
-  img: {type: String},
-  imdbRating: {type: String},
-  description: {type: String},
-  runtime: {type: String},
-  imdbID: {type: String},
-  version: {type: Number, default: 1}
+  year: { type: Number },
+  cast: { type: [{ type: String }] },
+  genres: { type: [{ type: String }] },
+  img: { type: String },
+  imdbRating: { type: String },
+  description: { type: String },
+  runtime: { type: String },
+  imdbID: { type: String },
+  version: { type: Number, default: 1 }
 });
 
 MovieSchema.statics = {
