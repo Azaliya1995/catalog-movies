@@ -29,6 +29,11 @@ MovieSchema.statics = {
    * @api private
    */
 
+  load: function(_id) {
+    return this.findOne({ _id })
+      .exec();
+  },
+
   list: function(options) {
     const criteria = options.criteria || {};
     const page = options.page || 0;

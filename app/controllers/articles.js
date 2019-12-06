@@ -8,16 +8,20 @@ const mongoose = require('mongoose');
 const { wrap: async } = require('co');
 const only = require('only');
 const Article = mongoose.model('Article');
+const Movie = mongoose.model('Movie');
 const assign = Object.assign;
 
 /**
  * Load
  */
+ /**
+  * @fixme 
+  */
 
 exports.load = async(function*(req, res, next, id) {
   try {
-    req.article = yield Article.load(id);
-    if (!req.article) return next(new Error('Article not found'));
+    req.movie = yield Movie.load(id);
+    if (!req.movie) return next(new Error('Movie not found'));
   } catch (err) {
     return next(err);
   }
