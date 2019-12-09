@@ -32,6 +32,15 @@ exports.index = async(function*(req, res) {
 
   if (_id) options.criteria = { _id };
 
+  options.criteria = {
+    year: {
+      $gt: 2017
+    }
+  }
+
+  options.sorting = {
+    imdbRating: -1
+  };
   const movies = yield Movie.list(options);
   const count = yield Movie.countDocuments();
 
@@ -50,6 +59,10 @@ exports.view = async function(req, res) {  //add page for one movie
     id: req.params.id,
     movie: movie
   });
+};
+
+exports.search = async function(req, res) {  
+  res.send('search')
 };
  
 exports.import = async function (req, res) {

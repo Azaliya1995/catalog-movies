@@ -86,7 +86,8 @@ module.exports = function(app, passport) {
   app.delete('/articles/:id', articleAuth, articles.destroy);
 
   // home route
-  app.get('/', articles.index);
+  app.get('/', movies.index);
+  app.get('/search', movies.search);
   app.get('/movies', movies.index);
   app.get('/movies/:id', movies.view);
   app.get('/movies/import', movies.import);

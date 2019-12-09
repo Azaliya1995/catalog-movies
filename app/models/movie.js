@@ -38,7 +38,9 @@ MovieSchema.statics = {
     const criteria = options.criteria || {};
     const page = options.page || 0;
     const limit = options.limit || 30;
+    const sorting = options.sorting || {};
     return this.find(criteria)
+      .sort(sorting)
       .limit(limit)
       .skip(limit * page)
       .exec();
