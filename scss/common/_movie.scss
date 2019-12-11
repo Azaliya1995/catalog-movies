@@ -2,16 +2,31 @@
   height: 100vh;
 
   h1,
-  .cast,
-  .reviews {
+  h2 {
     text-align: center;
   }
 
-  /*display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-gap: 2vw;
-  
-  */
+  .cast,
+  .reviews {
+    margin-top: 30px;
+  }
+
+  span a {
+    margin-right: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+  }
+
+  .cast {
+    a {
+      margin-right: 10px;
+      min-width: 120px;
+      //max-height: 60px;
+      border-radius: 5px;
+      //padding-top: 30px;
+      //padding-bottom: 30px;
+    }
+  }
 
   div {
     padding: 0.5em;
@@ -20,7 +35,4 @@
       max-width: 250px;
     }
   }
-  /*.year {
-    margin-top: -410px;
-  }*/
 }

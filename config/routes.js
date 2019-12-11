@@ -10,6 +10,7 @@ const movies = require('../app/controllers/movies');
 const comments = require('../app/controllers/comments');
 const tags = require('../app/controllers/tags');
 const auth = require('./middlewares/authorization');
+const admin = require('../app/controllers/admin');
 
 /**
  * Route middlewares
@@ -91,6 +92,10 @@ module.exports = function(app, passport) {
   app.get('/movies', movies.index);
   app.get('/movies/:id', movies.view);
   app.get('/movies/import', movies.import);
+
+  //admin routes
+  app.get('/admin', auth.requiresLogin, admin.index);
+  app.get('/admin/movies', auth.requiresLogin, admin.movies);
 
   // comment routes
   app.param('commentId', comments.load);

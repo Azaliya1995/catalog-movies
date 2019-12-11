@@ -1,7 +1,9 @@
 <section id="groups">
     <div class="container-fluid">
-        <h1>{{movie.title}}</h1>
-        <hr width="100px" color="white">
+        <div class="title">
+            <h1>{{movie.title}}</h1>
+            <hr width="100px" color="white">
+        </div>
         <div class="row">
             <div class="col-md-3">
                 <div class="img">
@@ -11,31 +13,52 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <span><a href="/movies/edit/{{movie._id}}" class="btn
-                        btn-primary">Edit</a></span>
-                <span><a href="/api/movie-render/{{movie.title}}/{{movie.year}}"
-                        class="btn btn-primary">View api</a></span>
-                <span><a href="/movies/year/{{movie.year}}" class="btn
-                        btn-primary year">
-                        {{movie.year}}
-                    </a></span>
-                <span class="btn-group">
-                    {{#each movie.genres}}
-                    <a href="/movies/genres/{{this}}" class="btn btn-primary">
-                        {{this}}
-                    </a>
-                    {{/each}}
-                </span>
+                <div class="elements">
+                    <span><a
+                            href="/api/movie-render/{{movie.title}}/{{movie.year}}"
+                            class="btn btn-primary">View api</a></span>
+                    <span><a href="/movies/edit/{{movie._id}}" class="btn
+                            btn-primary">Edit</a></span>
+                    <span class="btn-group genres">
+                        {{#each movie.genres}}
+                        <a href="/movies/genres/{{this}}" class="btn
+                            btn-primary">
+                            {{this}}
+                        </a>
+                        {{/each}}
+                    </span>
+                    <span><a href="/movies/year/{{movie.year}}" class="btn
+                            btn-primary year">
+                            {{movie.year}}
+                        </a></span>
 
-                <div class="description">
-                    <p>
-                        Running time: {{movie.runtime}}
-                    </p>
-                    <p class="description">
-                        {{movie.description}}
-                    </p>
+                    <div class="description">
+                        <p>
+                            Running time: {{movie.runtime}}
+                        </p>
+                        <p class="description">
+                            {{movie.description}}
+                            Lorem, ipsum dolor sit amet consectetur adipisicing
+                            elit. Magnam temporibus laboriosam enim consequatur
+                            nostrum hic quaerat molestias dolorum officiis est!
+                        </p>
+                    </div>
                 </div>
-
+            </div>
+            <div class="col-md-6">
+                <div class="youtube">
+                    <iframe width="560" height="315"
+                        {{#if movie.youtube_id}}
+                        src="https://www.youtube.com/embed/{{movie.youtube_id}}"
+                        {{else}}
+                        src="https://www.youtube.com/embed/sYKBG1znk4A"
+                        {{/if}}
+                        frameborder="0" allow="accelerometer; autoplay;
+                        encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-md-12">
                 <div class="cast">
                     <h2>Cast</h2>
                     <hr width="100px" color="white">
@@ -52,9 +75,6 @@
                     <h2>Reviews</h2>
                     <hr width="100px" color="white">
                 </div>
-            </div>
-            <div class="col-md-6">
-                Youtube
             </div>
         </div>
     </div>

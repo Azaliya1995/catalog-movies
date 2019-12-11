@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/admin">YourKino Admin</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+          <li class="nav-item">
+          <a href="/" title="Main" class="nav-link">Main</a>
+        </li>
+        <li class="nav-item">
+          <a href="/admin/movies" title="Admin Movies" class="nav-link">Admin Movies</a>
+        </li>
+      </ul>
+    </div>
+    <form class="form-inline my-2 my-lg-0" action="/movies">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search"
+        aria-label="Search" name="title">
+      <button class="btn btn-outline-primary my-2 my-sm-0 btn-custom-grey"
+        type="submit">Search</button>
+    </form>
+  </div>
+</nav>
