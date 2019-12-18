@@ -1,0 +1,32 @@
+.welcome-admin {
+  .content {
+    background-color: darkgrey;
+    padding: 15px;
+    margin-top: 25px;
+    color: white;
+  }
+  .notification {
+    margin-top: 25px;
+    .box {
+      background-color: darkgrey;
+      padding: 15px;
+      color: white;
+      & > i {
+        float: left;
+        color: #fff;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 22px;
+      }
+      .info {
+        h3,
+        p {
+          margin-left: 15px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

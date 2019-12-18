@@ -1,0 +1,124 @@
+<section id="edit-movie">
+    <div class="container">
+        <h1>{{title}}</h1>
+        <div class="row">
+            <div class="col-md-4">
+                {{#if newFlag}} <form method="POST"
+                    action="/admin/movies/create"> {{else}} <form method="POST"
+                        action="/admin/movies/edit/{{movie._id}}">{{/if}}
+                        <div class="form-group">
+                            <label for="title-input">Title</label>
+                            <input type="text" class="form-control"
+                                id="title-input"
+                                name="title" value="{{movie.title}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="year-input">Year</label>
+                            <input type="text" class="form-control"
+                                id="year-input"
+                                name="year" value="{{movie.year}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="img-input">Img</label>
+                            <input type="text" class="form-control"
+                                id="img-input"
+                                name="img" value="{{movie.img}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="imdbRating-input">Imdb Rating</label>
+                            <input type="text" class="form-control"
+                                id="imdbRating-input"
+                                name="imdbRating" value="{{movie.imdbRating}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="runtime-input">Runtime</label>
+                            <input type="text" class="form-control"
+                                id="runtime-input"
+                                name="runtime" value="{{movie.runtime}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="imdbID-input">Imdb ID</label>
+                            <input type="text" class="form-control"
+                                id="imdbID-input"
+                                name="imdbID" value="{{movie.imdbID}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="youtube_id-input">Youtube id</label>
+                            <input type="text" class="form-control"
+                                id="youtube_id-input"
+                                name="youtube_id" value="{{movie.youtube_id}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="description-input">Description</label>
+                            <textarea type="text" class="form-control"
+                                id="description-input"
+                                rows="3"
+                                name="description">{{movie.description}}</textarea>
+                        </div>
+                        {{#if newFlag}}
+                        <button type="submit" class="btn btn-success btn-save">Create</button>
+                        {{else}}
+                        <button type="submit" class="btn btn-info btn-save">Update</button>
+                        {{/if}}
+                        {{#if message}}
+                        <div class="alert alert-success alert-flash" role="alert">
+                            {{message}}
+                        </div>
+                        {{/if}}
+                    </form>
+                </div>
+                {{#unless newFlag}}
+                <div class="col-md-4">
+                    <form method="POST"
+                        action="/movies/add-genre/{{movie._id}}">
+                        <div class="form-group">
+                            <label for="genre-input">Genre</label>
+                            <input type="text" class="form-control"
+                                id="genre-input"
+                                name="genre" value="">
+                        </div>
+                        <div class="">
+                            {{#each movie.genres}}
+                            <div class="genre-wrapper">
+                                <a href="/movies/genres/{{this}}" class="btn
+                                    btn-primary btn-edit">
+                                    {{this}}
+                                </a>
+                                <a
+                                    href="/movies/genres/delete/{{../movie._id}}/{{this}}"
+                                    class="delete-x">x</a>
+                            </div>
+                            {{/each}}
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-save">Save</button>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <form method="POST" action="/movies/add-cast/{{movie._id}}">
+                        <div class="form-group">
+                            <label for="cast-input">Cast</label>
+                            <input type="text" class="form-control"
+                                id="cast-input"
+                                name="cast" value="">
+                        </div>
+                        <div class="">
+                            {{#each movie.cast}}
+                            <div class="cast-wrapper">
+                                <a href="/movies/cast/{{this}}" class="btn
+                                    btn-primary
+                                    cast btn-edit">
+                                    {{this}}
+                                </a>
+                                <a
+                                    href="/movies/cast/delete/{{../movie._id}}/{{this}}"
+                                    class="delete-x">x</a>
+                            </div>
+                            {{/each}}
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-save">Save</button>
+                    </form>
+                </div>
+                {{/unless}}
+            </div>
+        </div>
+    </section>
