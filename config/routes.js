@@ -96,6 +96,9 @@ module.exports = function(app, passport) {
   //admin routes
   app.get('/admin', auth.requiresLogin, admin.index);
   app.get('/admin/movies', auth.requiresLogin, admin.movies);
+  app.get('/admin/movies/edit/:id', auth.requiresLogin, admin.editMovieForm);
+  app.post('/admin/movies/edit/:id', auth.requiresLogin, admin.editMovie);
+  app.get('/admin/movies/create', auth.requiresLogin, admin.createMovieForm);
 
   // comment routes
   app.param('commentId', comments.load);

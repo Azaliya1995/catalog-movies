@@ -28,3 +28,27 @@
   margin-bottom: 10px;
 }
 
+//styles for button (edit page)
+.btn-create {
+  margin-bottom: 10px;
+  position: absolute;
+  right: 480px;
+  top: 60px;
+}
+
+.btn-edit,
+.btn-save {
+  margin-bottom: 10px;
+}
+
+.delete-x {
+  position: relative;
+  bottom: 17px;
+  right: 14px;
+  color: white;
+  opacity: 0.8;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

@@ -1,7 +1,8 @@
 <div class="container">
-    <h2>
+    <h1 class="title">
         {{title}}
-    </h2>
+    </h1>
+    <a href="/admin/movies/create" class="btn btn-success btn-lg btn-create">Create movie</a>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -18,7 +19,9 @@
                 <td>{{title}}</td>
                 <td>{{year}}</td>
                 <td>
-                    <a href="#" class="btn btn-success btn-sm">View</a>
+                    <a href="/movies/{{_id}}" class="btn btn-success btn-sm">View</a>
+                    <a href="/admin/movies/edit/{{_id}}" class="btn btn-info
+                        btn-sm">Edit</a>
                 </td>
             </tr>
             {{/each}}
