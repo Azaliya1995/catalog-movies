@@ -22,7 +22,8 @@ exports.editMovieForm = async (req, res) => {
     layout: "admin",
     movie: movie,
     title: "Edit movie",
-    newFlag: false
+    newFlag: false,
+    csrfToken: req.csrfToken()
   });
 };
 
@@ -31,7 +32,7 @@ exports.editMovie = async (req, res) => {
     {
       _id: req.params.id
     },
-    req.body
+    {...req.body, promo_flag: req.body.promo_flag == "on"}
   );
   const movie = await Movie.findOne({
     _id: req.params.id
@@ -43,7 +44,8 @@ exports.editMovie = async (req, res) => {
     movie: movie,
     title: "Edit movie",
     newFlag: false,
-    message: "Movie updated"
+    message: "Movie updated",
+    csrfToken: req.csrfToken()
   });
 };
 
@@ -52,7 +54,17 @@ exports.createMovieForm = async (req, res) => {
     layout: "admin",
     movie: {},
     title: "Create movie",
-    newFlag: true
+    newFlag: true,
+    csrfToken: req.csrfToken()
+  });
+};
+
+exports.createMovie = async (req, res) => {
+  const movie = new Movie({...req.body, promo_flag: req.body.promo_flag == "on"});
+  await movie.save();
+  res.render("admin/movie-form", {
+      movie: movie,
+      csrfToken: req.csrfToken()
   });
 };
 

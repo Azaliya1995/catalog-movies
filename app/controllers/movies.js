@@ -21,7 +21,7 @@ const fs = require("fs");
 //   next();
 // });
 
-exports.index = async(function*(req, res) {
+exports.index = async function(req, res) {
   const page = (req.query.page > 0 ? req.query.page : 1) - 1;
   const _id = req.query.item;
   const limit = 15;
@@ -41,16 +41,19 @@ exports.index = async(function*(req, res) {
   options.sorting = {
     imdbRating: -1
   };
-  const movies = yield Movie.list(options);
-  const count = yield Movie.countDocuments();
+  const movies = await Movie.list(options);
+  const count = await Movie.countDocuments();
+  const promos = await Movie.list({criteria:{promo_flag: 1}});
+  console.log(promos);
 
   res.render('movies/index', {
     title: 'Movies',
     movies: movies,
     page: page + 1,
-    pages: Math.ceil(count / limit)
+    pages: Math.ceil(count / limit),
+    promos: promos
   });
-});
+};
 
 exports.view = async function(req, res) {  //add page for one movie
   console.log('view');

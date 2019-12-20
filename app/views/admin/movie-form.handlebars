@@ -6,6 +6,7 @@
                 {{#if newFlag}} <form method="POST"
                     action="/admin/movies/create"> {{else}} <form method="POST"
                         action="/admin/movies/edit/{{movie._id}}">{{/if}}
+                        <input type="hidden" name="_csrf" value="{{csrfToken}}">
                         <div class="form-group">
                             <label for="title-input">Title</label>
                             <input type="text" class="form-control"
@@ -55,13 +56,20 @@
                                 rows="3"
                                 name="description">{{movie.description}}</textarea>
                         </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input"
+                                id="promo" name="promo_flag" {{#if
+                                movie.promo_flag}} checked {{/if}}>
+                            <label class="form-check-label" for="promo">Promo</label>
+                        </div>
                         {{#if newFlag}}
                         <button type="submit" class="btn btn-success btn-save">Create</button>
                         {{else}}
                         <button type="submit" class="btn btn-info btn-save">Update</button>
                         {{/if}}
                         {{#if message}}
-                        <div class="alert alert-success alert-flash" role="alert">
+                        <div class="alert alert-success alert-flash"
+                            role="alert">
                             {{message}}
                         </div>
                         {{/if}}

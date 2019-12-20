@@ -99,6 +99,7 @@ module.exports = function(app, passport) {
   app.get('/admin/movies/edit/:id', auth.requiresLogin, admin.editMovieForm);
   app.post('/admin/movies/edit/:id', auth.requiresLogin, admin.editMovie);
   app.get('/admin/movies/create', auth.requiresLogin, admin.createMovieForm);
+  app.post('/admin/movies/create', auth.requiresLogin, admin.createMovie);
 
   // comment routes
   app.param('commentId', comments.load);
