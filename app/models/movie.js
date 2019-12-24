@@ -20,7 +20,8 @@ const MovieSchema = new Schema({
   imdbID: { type: String },
   version: { type: Number, default: 1 },
   youtube_id: { type: String},
-  promo_flag: {type: Number}
+  promo_flag: {type: Number},
+  promo_img: { type: String}
 });
 
 MovieSchema.statics = {

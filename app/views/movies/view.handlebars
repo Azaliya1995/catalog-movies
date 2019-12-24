@@ -14,11 +14,6 @@
             </div>
             <div class="col-md-3">
                 <div class="elements">
-                    <span><a
-                            href="/api/movie-render/{{movie.title}}/{{movie.year}}"
-                            class="btn btn-primary">View api</a></span>
-                    <span><a href="/movies/edit/{{movie._id}}" class="btn
-                            btn-primary">Edit</a></span>
                     <span class="btn-group genres">
                         {{#each movie.genres}}
                         <a href="/movies/genres/{{this}}" class="btn
@@ -36,11 +31,17 @@
                         <p>
                             Running time: {{movie.runtime}}
                         </p>
+                        <div class="item-rating rating">
+                            <ul class="item-stars rating-stars">
+                                <li><span class="fa fa-star"></span></li>
+                                <li><span class="fa fa-star"></span></li>
+                                <li><span class="fa fa-star"></span></li>
+                                <li><span class="fa fa-star-half-o"></span></li>
+                                <li><span class="fa fa-star-o"></span></li>
+                            </ul>
+                        </div>
                         <p class="description">
                             {{movie.description}}
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Magnam temporibus laboriosam enim consequatur
-                            nostrum hic quaerat molestias dolorum officiis est!
                         </p>
                     </div>
                 </div>

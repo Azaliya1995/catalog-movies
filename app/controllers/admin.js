@@ -64,7 +64,11 @@ exports.createMovie = async (req, res) => {
   await movie.save();
   res.render("admin/movie-form", {
       movie: movie,
-      csrfToken: req.csrfToken()
+      csrfToken: req.csrfToken(),
+      layout: "admin",
+      title: "Edit",
+      newFlag: false,
+      message: "Movie created"
   });
 };
 

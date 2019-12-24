@@ -36,3 +36,16 @@
     }
   }
 }
+
+.rating-stars {
+  color: $primary;
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+
+  > li {
+    display: inline;
+  }
+}

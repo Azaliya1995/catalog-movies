@@ -51,7 +51,8 @@ exports.index = async function(req, res) {
     movies: movies,
     page: page + 1,
     pages: Math.ceil(count / limit),
-    promos: promos
+    promos: promos,
+    slideId: promos[0]._id
   });
 };
 
